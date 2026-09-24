@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+
+    <title>
+    </title>
+
+    <!-- <script  type="text/javascript" src="jquery.min.js" ></script>
+    <script type="text/javascript" src="datatable/datatables.min.js"></script>
+    <script type="text/javascript" src="datatable-res/cdn.datatables.net_rowreorder_1.4.1_js_dataTables.rowReorder.min.js">
+    </script>
+    <script type="text/javascript" src="datatable-res/cdn.datatables.net_responsive_2.5.0_js_dataTables.responsive.min.js">
+    </script> -->
+
+    <!-- <link rel="stylesheet" href="fontawesome/css/all.min.css"  />
+    <link rel="stylesheet" href="css/bootstrap.min.css" >
+    <link rel="stylesheet" href="datatable/datatables.min.css">
+    <link rel="stylesheet" href="datatable-res/cdn.datatables.net_responsive_2.5.0_css_responsive.dataTables.min.css">
+    <link rel="stylesheet" href="datatable-res/cdn.datatables.net_rowreorder_1.4.1_css_rowReorder.dataTables.min.css"> -->
+
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js">
+    </script>
+    <script src="https://cdn.datatables.net/rowreorder/1.4.1/js/dataTables.rowReorder.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.20/sweetalert2.min.js" integrity="sha512-2AOp8GEFv1X43dZpYqOp34WD+skmM18yOrCxS/S1Mh6VShz7uxlPhKmA98fsPrE7MMMtZgjshiMHKmzWtZR5uA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</script>
+<script src ="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>  
+
+<script src ="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>  
+
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.20/sweetalert2.css" integrity="sha512-K0TEY7Pji02TnO4NY04f+IU66vsp8z3ecHoID7y0FSVRJHdlaLp/TkhS5WDL3OygMkVns4bz0/ah4j8M3GgguA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/rowreorder/1.4.1/css/rowReorder.dataTables.min.css"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css "/>
+    <link rel ="stylesheet" href ="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">  
+        <style type="text/css">
+      @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+      body {
+        font-family: 'Poppins', sans-serif;
+        background: #fafafa;
+      }
+      p {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.1em;
+        font-weight: 300;
+        line-height: 1.7em;
+        color: #999;
+      }
+      a,
+      a:hover,
+      a:focus {
+        color: inherit;
+        text-decoration: none;
+        transition: all 0.3s;
+      }
+      .navbar {
+        padding: 15px 10px;
+        background: #fff;
+        border: none;
+        border-radius: 0;
+        margin-bottom: 40px;
+        box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+      }
+      .navbar-btn {
+        box-shadow: none;
+        outline: none !important;
+        border: none;
+      }
+      .line {
+        width: 100%;
+        height: 1px;
+        border-bottom: 1px dashed #ddd;
+        margin: 40px 0;
+      }
+      /* ---------------------------------------------------
+      SIDEBAR STYLE
+      ----------------------------------------------------- */
+      .wrapper {
+        display: flex;
+        width: 100%;
+        align-items: stretch;
+      }
+      #sidebar {
+        min-width: 250px;
+        max-width: 250px;
+        background: #7386D5;
+        color: #fff;
+        transition: all 0.3s;
+      }
+      #sidebar.active {
+        margin-left: -250px;
+      }
+      #sidebar .sidebar-header {
+        padding: 20px;
+        background: #6d7fcc;
+      }
+      #sidebar ul.components {
+        padding: 20px 0;
+        border-bottom: 1px solid #47748b;
+      }
+      #sidebar ul p {
+        color: #fff;
+        padding: 10px;
+      }
+      #sidebar ul li a {
+        padding: 10px;
+        font-size: 1.1em;
+        display: block;
+      }
+      #sidebar ul li a:hover {
+        color: #7386D5;
+        background: #fff;
+      }
+      #sidebar ul li.active>a,
+      a[aria-expanded="true"] {
+        color: #fff;
+        background: #6d7fcc;
+      }
+      a[data-toggle="collapse"] {
+        position: relative;
+      }
+      .dropdown-toggle::after {
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+      }
+      ul ul a {
+        font-size: 0.9em !important;
+        padding-left: 30px !important;
+        background: #6d7fcc;
+      }
+      ul.CTAs {
+        padding: 20px;
+      }
+      ul.CTAs a {
+        text-align: center;
+        font-size: 0.9em !important;
+        display: block;
+        border-radius: 5px;
+        margin-bottom: 5px;
+      }
+      a.download {
+        background: #fff;
+        color: #7386D5;
+      }
+      a.article,
+      a.article:hover {
+        background: #6d7fcc !important;
+        color: #fff !important;
+      }
+      /* ---------------------------------------------------
+      CONTENT STYLE
+      ----------------------------------------------------- */
+      #content {
+        width: 100%;
+        padding: 20px;
+        min-height: 100vh;
+        transition: all 0.3s;
+      }
+      /* ---------------------------------------------------
+      MEDIAQUERIES
+      ----------------------------------------------------- */
+      @media (max-width: 768px) {
+        #sidebar {
+          margin-left: -250px;
+        }
+        #sidebar.active {
+          margin-left: 0;
+        }
+        #sidebarCollapse span {
+          display: none;
+        }
+      }
+.chk{
+  height: 26px;
+  width: 26px;
+}
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- Sidebar  -->
+      <nav id="sidebar">
+        <div class="sidebar-header">
+          <h3 class="ul"><span><i class='fab fa-amazon-pay' style='font-size:26px'></i></span>
+            <span><u>Khodiyar Kirana Store</u></span>
+          </h3>
+        </div>
+        <ul class="list-unstyled components">
+          <p class="fs-5 fw-bold"> <i class="fa fa-user"  style="margin-right:10px" aria-hidden="true"></i>
+             Admin Panel
+          </p>
+          <li>
+            <a href="
+#" data-toggle="collapse" aria-expanded="false"  id="show_item_1" onclick = "oprations(1)"><i class="fa fa-list" style="margin-right:10px" aria-hidden="true"></i> Item List</a>  
+            </a>
+          </li>
+          <li>
+            <a href="
+#" data-toggle="collapse" aria-expanded="false"  id="add_item_1" onclick = "oprations(2)"> <i class="fa fa-plus mr-2"  style="margin-right:10px" aria-hidden="true"></i>
+<span class="" >Add Item  </span>
+            </a>
+          </li>
+
+        </ul>
+        <ul class="p-0" style="list-style: none;">
+          <li>
+            <a href="#" onclick = "oprations(5)"><i class="fa fa-upload "  style="margin-right:10px" aria-hidden="true"></i>
+               Upload Data
+            </a>
+          </li>
+          <li>
+            <a href="" class="article" onclick = "download_data(this)"><i class="fa fa-download"  style="margin-right:10px" aria-hidden="true"></i> Download Data
+            </a>
+
+          </li>
+        </ul>
+      </nav>
+      <!-- Page Content  -->
+      <div id="content">
+        <p id="sidebarCollapse">
+          <i class="fa fa-window-close d-none" aria-hidden="true">
+          </i>
+          <i class="fa fa-bars" aria-hidden="true">
+          </i>
+
+        </p>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+    <div class="row" style="display:none" id="show_item">
+
+              <div class="row">
+              <h1 class="alert alert-primary d-inline-block">SHOW ITEM
+              </h1>
+              <button type="button" name="button" class="d-inline-block btn btn-primary col-5" onclick="oprations(2)"><i class="fa fa-plus" aria-hidden="true"></i> Add item</button>
+              </div>
+
+               <table class="table display-nowrap" id= "show_table">
+                <thead>
+                  <tr>
+                    <!-- <th scope="col">#</th> -->
+                    <!-- <th scope="col">ID
+                    </th> -->
+                    <th scope="col">Item
+                    </th>
+                    <th scope="col">Cell Price
+                    </th>
+                    <th scope="col">Cost Price
+                    </th>
+                    <!-- <th scope="col" class="d-none">Eng
+                    </th> -->
+                    <th scope="col">Action
+                    </th>
+                    <th scope="col">Last Updated
+                    </th>
+                  </tr>
+                </thead>
+                <tbody id = "tbody1">
+                  <tr>
+
+                    <td>----
+                    </td>
+                    <td>----
+                    </td>
+                    <td>----
+                    </td>
+                    <!-- <td class="d-none">----
+                    </td> -->
+                    <td>----
+                    </td>
+                    <td>----
+                    </td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+            <div class="row" id="update_item" style="display:none">
+              <h1 class="alert alert-primary">UPDATE ITEM
+              </h1>
+              <button class="btn btn-primary d-inline-block col-4"  onclick="oprations(1)"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button>
+              <table class="table"  style="display:none" id= "update_table" >
+                <thead>
+                  <tr>
+                    <!-- <th scope="col">#</th> -->
+                    <th scope="col">Item
+                    </th>
+                    <th scope="col">Cell Price
+                    </th>
+                    <th scope="col">Cost Price
+                    </th>
+                    <th scope="col">Eng
+                    </th>
+                    <th scope="col">Action
+                    </th>
+                    <th scope="col">Last Updated
+                    </th>
+                  </tr>
+                </thead>
+                <tbody id="tbody2">
+                  <tr>
+                    <!-- <th scope="row">0</th> -->
+                    <td>----
+                    </td>
+                    <td>----
+                    </td>
+                    <td>----
+                    </td>
+                    <td>----
+                    </td>
+                    <td>
+                      <i class="fa fa-pencil" aria-hidden="true">
+                      </i>
+                    </td>
+                    <td>----
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+                          <div class="row my-3">
+                              <span class="form-label">Eng Name</span>
+                             <div class="col-md-12">
+                               <input type="text" class="form-control" id="up_eng_value" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+                             </div>
+                            </div>
+
+                          <div class="row my-3">
+                              <span class="form-label">Guj Name</span>
+                             <div class="col-md-12">
+                               <input type="text" class="form-control" id="up_guj_value"  aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+                             </div>
+                            </div>
+                          <div class="row my-3">
+                              <span class="form-label">Cell Price</span>
+                             <div class="col-md-12">
+                               <input type="text" class="form-control"  id="up_sell_value"  aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+                             </div>
+                            </div>
+                          <div class="row my-3">
+                              <span class="form-label">Cost Price</span>
+                             <div class="col-md-12">
+                               <input type="text" id="up_cost_value" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+                             </div>
+                            </div>
+                          <div class="row my-3">
+                              <span class="form-label">Is Final</span>
+                             <div class="col-md-12">
+                               <input type="checkbox" id="is_final"  class="chk btn btn-success">
+                             </div>
+                            </div>
+                            <div class="row my-3">
+                                <span class="form-label">Last Updated</span>
+                               <div class="col-md-12">
+                                 <input type="date" id="last_updated" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" >
+                               </div>
+                            </div>
+                          <div class="row my-3">
+                             <div class="col-md-12">
+                               <button type="button" id="update" onclick = "update_item()"  class="btn btn-success">Update Item
+                               </button>
+                             </div>
+                            </div>
+
+
+
+
+            </div>
+            <div class="row" id="delete_item" style="display:none">
+              <h1 class="alert alert-primary">DELETE ITEM
+              </h1>
+              <table class="table" id= "delete_table"  >
+                <thead>
+                  <tr>
+                    <!-- <th scope="col">#</th> -->
+                    <th scope="col">Item
+                    </th>
+                    <th scope="col">Cell Price
+                    </th>
+                    <th scope="col">Cost Price
+                    </th>
+                    <th scope="col">Eng
+                    </th>
+                    <th scope="col">Action
+                    </th>
+                    <th scope="col">Last Updated
+                    </th>
+                  </tr>
+                </thead>
+                <tbody id="tbody3" >
+                  <tr>
+                    <td>----
+                    </td>
+                    <td>----
+                    </td>
+                    <td>----
+                    </td>
+                    <td>----
+                    </td>
+
+                    <td>
+                      <i class="fa fa-trash" aria-hidden="true">
+                      </i>
+                    </td>
+                    <td>----
+                    </td>
+
+                  </tr>
+                </tbody>
+              </table>
+
+
+              <button type="button" class="btn btn-success">Delete Item
+              </button>
+            </div>
+            <div class="" id="add_item" style="display:none">
+                 <h1 class="alert alert-primary">Add item</h1>
+                 <button class="btn btn-primary d-inline-block col-4" onclick="oprations(1)"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button>
+
+
+            <div class="row my-3">
+                <span class="form-label">Eng Name</span>
+               <div class="col-md-12">
+                <input type="text" class="form-control" id="eng_value" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+               </div>
+              </div>
+            <div class="form-group row">
+                 <span class="form-label">Guj Name</span>
+               <div class="col-12 col-md-12">
+                  <input type="text" class="form-control" id="guj_value"  aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+               </div>
+              </div>
+            <div class="form-group row my-3">
+                 <span class="form-label">Cell Price</span>
+               <div class="col-12 col-md-12">
+                  <input type="text" class="form-control" id="sell_value"  aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+               </div>
+              </div>
+            <div class="form-group row">
+                 <span class="form-label">Cost Price </span>
+               <div class="col-12 col-md-12">
+                 <input type="text" id="cost_value" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+               </div>
+              </div>
+            <div class="form-group row my-3">
+               <div class="col">
+                 <span >Is Final</span>
+              <input type="checkbox" id="add_is_final"   class="form-check chk">
+            </div>
+            </div>
+            <div class="row my-3">
+              <span class="form-label">Last Updated</span>
+             <div class="col-md-12">
+              <input type="date" id="last_updated_onload" class="form-control" id="date" 
+              name="date">             </div>
+            </div>
+            <div class="form-group row my-3">
+            <div class="col-md-12">
+              <button type="button" id="submit"  class="btn btn-success">Add Item
+              </button>
+              </div>
+          </div>
+
+
+            </div>
+<div id="upload_item" style="display:none">
+  <div class="alert alert-primary" role="alert">
+    Upload Your data from here
+  </div>
+<input type="file" class="btn btn-warning my-5 file-upload-button" name="" value="">
+</div>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <script type="text/javascript">
+function getdate(){
+    var today = new Date();
+
+document.getElementById("last_updated_onload").value = today.getFullYear() + '-' + ('0' + (today.getMonth() + 1)).slice(-2) + '-' + ('0' + today.getDate()).slice(-2);
+ }
+         oprations(1);
+      $(document).ready(function () {
+ 
+
+
+
+
+        $('#sidebarCollapse').on('click', function () {
+          $('#sidebar').toggleClass('active');
+          $('.fa-window-close').toggleClass('d-none');
+          $('.fa-bars').toggleClass('d-none');
+        }
+                                );
+      }
+
+                       );
+     
+      function oprations(type,key=""){
+        var oper_type ="";
+        if(type==1){
+         show_all_item(1);
+          show = "show_item";
+          $("#"+show).css("display", "block");
+          $("#update_item").css("display", "none");
+          $("#delete_item").css("display", "none");
+          $("#add_item").css("display", "none");
+          $("#upload_item").css("display", "none");
+
+  }
+        else if(type==3){
+          // show_all_item(2);
+          show = "update_item";
+          $("#"+show).css("display", "block");
+          $("#show_item").css("display", "none");
+          $("#delete_item").css("display", "none");
+          $("#add_item").css("display", "none");
+          $("#upload_item").css("display", "none");
+          update_item_edit(key);
+
+        }
+        else if(type==4){
+         // show_all_item(3);
+          show = "delete_item";
+          $("#"+show).css("display", "block");
+          $("#add_item").css("display", "none");
+          $("#update_item").css("display", "none");
+          $("#show_item").css("display", "none");
+          $("#upload_item").css("display", "none");
+
+        }
+        else if (type==2){
+          show = "add_item";
+          // show_all_item(2);
+          $("#"+show).css("display", "block");
+          $("#delete_item").css("display", "none");
+          $("#show_item").css("display", "none");
+          $("#update_item").css("display", "none");
+          $("#upload_item").css("display", "none");
+          getdate();
+        }
+        else if (type==5){
+          // show_all_item(2);
+          $("#upload_item").css("display", "block");
+          $("#add_item").css("display", "none");
+          $("#delete_item").css("display", "none");
+          $("#show_item").css("display", "none");
+          $("#update_item").css("display", "none");
+        }
+      }
+      // window.localStorage.setItem("kariyanu2","");
+
+      function reset(){
+      $("#show_table").destroy();
+          $("#update_table").destroy();
+          $("#delete_table").destroy();
+          }
+      var obj = {};
+      function show_dropdown(){
+
+         var obj1 = JSON.parse(window.localStorage.getItem("kariyanu2"));
+      var arr1 = "",key = 0;
+      var obj3 = Object.keys(obj1);
+      for ( key = 0; key<obj3.length ;key ++){
+      arr1+= "<option value='"+obj3[key]+"'>"+obj3[key]+"</option>";
+      }
+              document.getElementById("subitems").innerHTML =arr1;
+          $("#subitems").select2();
+
+      }
+
+
+        function show_all_item(id){
+          //Shows an item on outer dashboard
+        var kariyanu = window.localStorage.getItem("kariyanu2");
+      if(kariyanu == ""){
+      alert("No Data Found !");
+      return;
+      }
+
+       var obj1=JSON.parse(kariyanu);
+        var html = "";
+
+          $("#show_table > tr").remove();
+          $("#update_table > tr").remove();
+          $("#delete_table > tr").remove();
+
+
+
+      for (key in obj1) {
+
+        var item_tr = document.createElement("TR");
+
+            var item_td = document.createElement("TD");
+            var item_text = document.createTextNode(obj1[key].guj);
+            item_td.appendChild(item_text);
+
+          item_tr.appendChild(item_td);
+            var item_sell_td = document.createElement("TD");
+            var item_sell_price = document.createTextNode(obj1[key].sell_price);
+            item_sell_td.appendChild(item_sell_price);
+
+       item_tr.appendChild(item_sell_td);
+
+            var item_cost_td = document.createElement("TD");
+            var item_cost_price = document.createTextNode("");
+            item_cost_td.appendChild( item_cost_price );
+           item_tr.appendChild(item_cost_td);
+
+        // var item_eng_td = document.createElement("TD");
+        //     var item_eng_text = document.createTextNode(obj1[key].eng);
+        //     item_eng_td.appendChild(item_eng_text);
+        //     item_eng_td.setAttribute("display","none");
+        //
+        //   item_tr.appendChild(item_eng_td);
+        var item_action_td = document.createElement("TD");
+
+        var last_updated = document.createElement("TD");
+        
+            var last_updated_1 = document.createTextNode(obj1[key].last_updated);
+            last_updated.appendChild( last_updated_1 );
+
+
+        item_action_td.setAttribute("value","key");
+        if(id==1){
+          if(obj1[key].is_final == 1){
+          item_action_td.innerHTML = '   <span class="" ><i class="fa fa-pencil " onclick="oprations(3,\''+key+'\')" aria-hidden="true"></i> </span> <span class="ms-1   "><i class="fa fa-trash  " aria-hidden="true"  onclick="delete_item('+key+')" ></i></span><input type="checkbox"   class="ms-2" checked/>';
+               }else{
+                item_action_td.innerHTML = ' <span  class=""><i class="fa fa-pencil " onclick="oprations(3,\''+key+'\')" aria-hidden="true"></i> </span>  <span class="ms-1 "><i class="fa fa-trash " aria-hidden="true"  onclick="delete_item('+key+')" ></i></span><input type="checkbox" class="ms-2" />';
+          }
+        }
+
+          item_tr.appendChild(item_action_td);
+          item_tr.appendChild(last_updated);
+
+      if(id==1){
+        $("#tbody1").append(item_tr);
+                   }
+       if(id==2){
+         $("#tbody2").append(item_tr);
+                  }
+
+      if(id==3){
+        $("#tbody3").append(item_tr);
+
+      }
+
+
+      }
+        if(id==1){
+         $("#show_table").dataTable({
+           destroy: true,
+           responsive: true,
+               rowReorder: {
+                   selector: 'td:nth-child(2)'
+               }
+         });
+        }
+
+          }
+      $("#show_item_12").click(function(){
+        $("#tbody tr").remove();
+        var kariyanu = window.localStorage.getItem("kariyanu2");
+       var obj1=JSON.parse(kariyanu);
+      var show_item_value =  $('#subitems').find(":selected").val();
+      for (key in obj1) {
+        if(!(show_item_value.trim()).localeCompare(key.trim())){
+
+           $("#tbody td").remove();
+            var item_td = document.createElement("TD");
+            var item_text = document.createTextNode(obj1[key].guj);
+            item_td.appendChild(item_text);
+
+        document.getElementById("item_data").appendChild(item_td);
+            var item_sell_td = document.createElement("TD");
+            var item_sell_price = document.createTextNode(obj1[key].sell_price);
+            item_sell_td.appendChild(item_sell_price);
+
+        document.getElementById("item_data").appendChild(item_sell_td);
+            var item_cost_td = document.createElement("TD");
+            var item_cost_price = document.createTextNode("");
+            item_cost_td.appendChild( item_cost_price );
+
+        document.getElementById("item_data").appendChild(item_cost_td);
+        var last_updated = document.createElement("TD");
+        // if(obj1[key].last_updated === undefined) {
+        //   console.log(obj1[key].last_updated);
+          obj1[key].last_updated = "";
+        // }
+        //   else{
+        //     //alert(2);
+        //   }
+        
+            var last_updated_1 = document.createTextNode(obj1[key].last_updated);
+            last_updated.appendChild( last_updated_1 );
+
+       }
+        }
+
+        });
+
+      function delete_item( delete_item_value ){
+
+
+       // if (confirm("Are You sure wants to Delete this item !")) {
+       Swal.fire({
+         title: 'Are you sure?',
+         text: "You won't be able to revert this!",
+         icon: 'warning',
+         showCancelButton: true,
+         confirmButtonColor: '#3085d6',
+         cancelButtonColor: '#d33',
+         confirmButtonText: 'Yes, delete it!'
+       }).then((result) => {
+
+         if (result.isConfirmed) {
+        var kariyanu = window.localStorage.getItem("kariyanu2");
+       var obj1=JSON.parse(kariyanu);
+      var deleted_item_arr = [];
+
+        delete obj1[delete_item_value];
+
+        localStorage.setItem("kariyanu2",JSON.stringify(obj1));
+
+
+           Swal.fire(
+             'Deleted!',
+             'Your file has been deleted.',
+             'success'
+           )
+location.reload();
+
+         }
+       })
+        }
+
+      function update_item_edit(selected_subitem){
+           var kariyanu = window.localStorage.getItem("kariyanu2");
+       var obj1=JSON.parse(kariyanu);
+        for (key in obj1) {
+
+          if(!(selected_subitem.trim()).localeCompare(key.trim())){
+
+            $('#up_eng_value ').val(obj1[key].eng);
+       $('#up_guj_value ').val(obj1[key].guj);
+       $('#up_sell_value ').val(obj1[key].sell_price);
+      $('#up_cost_value ').val(obj1[key].cost_price);
+      $('#update').val(selected_subitem);
+      $('#last_updated').val(obj1[key].last_updated);
+      
+            if(obj1[key].is_final == 1){
+              $("#is_final").prop('checked',true);
+            }else{
+               $("#is_final").prop('checked',false);
+            }
+
+         }
+          }
+        }
+
+      function update_item(){
+
+      var selected_subitem = $('#update ').val();
+       var update_value =[];
+      var eng_value = $('#up_eng_value ').val();
+      var guj_value = $('#up_guj_value ').val();
+      var sell_value = $('#up_sell_value ').val();
+      var cost_value = $('#up_cost_value ').val();
+      var last_updated = $('#last_updated ').val();
+
+        var delete_item =  '';
+         var kariyanu = window.localStorage.getItem("kariyanu2");
+       var obj1=JSON.parse(kariyanu);
+        for (key in obj1) {
+          if(parseInt(selected_subitem) == parseInt(key)){
+
+            if(eng_value != "" ){
+
+              var abc = key;
+              obj1[key].eng =eng_value;
+              obj1[key].guj =guj_value;
+              obj1[key].sell_price =sell_value;
+              obj1[key].cost_price =cost_value;
+              obj1[key].last_updated =last_updated;
+              if($("#is_final").prop('checked')==true){
+             obj1[key].is_final =1;
+             }else{
+               obj1[key].is_final =0;
+               }
+
+
+        
+                  localStorage.setItem("kariyanu2",JSON.stringify(obj1));
+
+
+            alert("Item Updated successfully");
+            location.reload();
+          }else {
+            alert("Please enter english value for an Item !");
+
+          }
+
+        }
+        }
+        }
+
+
+      $("#submit").click(function(){
+
+      var obj=[];
+      var obj1=[];
+      var is_final=0;
+      var eng_value = $('#eng_value ').val();
+      var guj_value = $('#guj_value ').val();
+      var sell_value = $('#sell_value ').val();
+      var cost_value = $('#cost_value ').val();
+      var last_updated =  new Date().toLocaleDateString();
+ 
+      
+      if(eng_value == ""){
+      alert("Please Enter English name for an item");
+      return;
+      }
+      var kariyanu = window.localStorage.getItem("kariyanu2");
+      if(kariyanu == null){
+      var kariyanu = window.localStorage.setItem("kariyanu2","");
+      }
+
+            if(kariyanu == ""){
+              var obj={};
+              obj[1]= {"eng":eng_value,"guj":guj_value,"sell_price":sell_value,"cost_price":cost_value,"last_updated":last_updated} ;
+            window.localStorage.setItem("item_count",1);
+
+            window.localStorage.setItem("kariyanu2",JSON.stringify(obj));
+
+            alert("First Item added Successfully");
+
+              }else {
+                var obj1=JSON.parse(kariyanu);
+
+        if (Object.keys(obj1).length > 0 ) {
+
+      var max = 0;
+           for (var key in obj1) {
+      if(key != ""){
+      key = parseInt(key);
+
+      if(max > key);{
+            max = key;
+      }
+      }
+           }
+      if($("#add_is_final").prop('checked')==true){
+             is_final =1;
+             }else{
+               is_final =0;
+               }
+
+            obj1[max+1]={"eng":eng_value,"guj":guj_value,"sell_price":sell_value,"cost_price":cost_value,"is_final":is_final,"last_updated":last_updated};
+
+
+            window.localStorage.setItem("kariyanu2",JSON.stringify(obj1));
+        alert("Item added Successfully");
+ location.reload();
+
+            }else {
+              var obj={};
+              obj[1]= {"eng":eng_value,"guj":guj_value,"sell_price":sell_value,"cost_price":cost_value,"last_updated":last_updated} ;
+            window.localStorage.setItem("item_count",1);
+
+            window.localStorage.setItem("kariyanu2",JSON.stringify(obj));
+
+            alert("First Item added Successfully");
+            }
+
+            }
+
+
+      });
+
+
+        $('.file-upload-button').on('change', function(event) {
+
+          if (confirm("Are You sure wants to Upload items !")) {
+          var reader = new FileReader();
+          reader.onload = function(event) {
+            var str = (event.target.result).replace(/[\n\r]/g, "" );
+
+
+            var jsonObj = JSON.parse(str);
+            var jsonObj1 = localStorage.getItem("kariyanu2");
+            var jsonObj2 = JSON.parse(jsonObj1);
+
+      var max = 0;
+           for (var key in jsonObj2) {
+      if(key != ""){
+      key = parseInt(key);
+
+      if(max > key);{
+            max = key;
+      }
+      }
+           }
+           var eng_value = guj_value = sell_value = cost_value = last_updated ="";
+      for (var key in jsonObj) {
+      eng_value = jsonObj[key].eng;
+      guj_value = jsonObj[key].guj;
+      sell_value = jsonObj[key].sell_price;
+      cost_value = jsonObj[key].cost_price;
+      is_final = jsonObj[key].is_final;
+      last_updated = jsonObj[key].last_updated;
+      
+      max++;
+        jsonObj2[max]= {"eng":eng_value,"guj":guj_value,"sell_price":sell_value,"cost_price":cost_value,"is_final":is_final,"last_updated":last_updated};
+      }
+
+      localStorage.setItem("kariyanu2", JSON.stringify(jsonObj2));
+      var newobj = localStorage.getItem("kariyanu2");
+
+alert("Data Uploaded Successfully !");
+      return;
+
+
+        if(jsonObj1 == null){
+            localStorage.setItem("kariyanu2", JSON.stringify(jsonObj));
+        }else {
+
+        var jsonObj1 = JSON.parse(jsonObj1);
+        var newobj = Object.assign(jsonObj,jsonObj1);
+            localStorage.setItem("kariyanu2", JSON.stringify(newobj));
+            var jsonObj2 = localStorage.getItem("kariyanu2", jsonObj);
+        datafeed = jsonObj2;
+
+        $("#dis").html(jsonObj2);
+        }
+          }
+          reader.readAsText(event.target.files[0]);
+      }
+        });
+
+        function download_data(el) {
+          var jsondata = localStorage.getItem("kariyanu2");
+            var data = "text/json;charset=utf-8," + (jsondata);
+            el.setAttribute("href", "data:"+data);
+            el.setAttribute("download", "data.json");
+        }
+
+
+    </script>
+  </body>
+</html>
